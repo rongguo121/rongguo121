@@ -27,18 +27,16 @@ module CORDIC_angle_tb;
 	// Inputs
 	reg clk;
 	reg rst_n;
-	//reg [15:0] z_in;
-	reg [3:0]A;
-	reg [3:0]W;
+	reg [15:0]A;
+	reg [15:0]W;
 	// Outputs
-	wire signed[20:0] x_out;
-	wire signed[20:0] y_out;
+	wire signed[32:0] x_out;
+	wire signed[32:0] y_out;
 
 	// Instantiate the Unit Under Test (UUT)
 	CORDIC_angle uut (
 		.clk(clk), 
 		.rst_n(rst_n), 
-		//.z_in(z_in),
 		.A(A),
 		.W(W),
 		.x_out(x_out), 
@@ -49,9 +47,8 @@ module CORDIC_angle_tb;
 		// Initialize Inputs
 		clk = 0;
 		rst_n = 0;
-	//	z_in = 0;
-		A = 1;
-		W = 1;
+		A = 1024;
+		W = 1024;
 		
 		
 		
@@ -60,24 +57,21 @@ module CORDIC_angle_tb;
 		#1;rst_n = 1;
 		#1;rst_n = 0;
 		#1;rst_n = 1;
-		//repeat(20)
-		//#100
-		//z_in=z_in+3;
-        
-		// Add stimulus here
 		
-		//#500 A= 2; W= 2;
-		//#500 A= 4; W= 4;
+		#13680;
+		#136800;
+		#136800; W= 2048;A=2048;
 		#13680;
 		#13680;
-		#13680; W= 2;A=2;
+		#13680 W= 4096;A=2048;
 		#13680;
 		#13680;
-		#13680 W= 4;A=4;
+		#13680 W= 182;A=1024;
 		
 	end
-      always #1 clk=~clk;
-	 // always #38 z_in = z_in + 182;
+      always #10 clk=~clk;
+	 
 endmodule
+
 
 

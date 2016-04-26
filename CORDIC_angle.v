@@ -1,6 +1,9 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
+// Engineer: `timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
 // Engineer: 
 // 
 // Create Date:    09:02:14 07/16/2014 
@@ -23,11 +26,10 @@ module CORDIC_angle
 	(
 		input clk,
 		input rst_n,
-		input [3:0]A,
-		input [3:0]W,
-		//input  [DATA_WIDTH-1:0]z_in,
-		output reg signed[DATA_WIDTH+4:0]x_out,
-		output reg signed [DATA_WIDTH+4 :0]y_out
+		input [15:0]A,
+		input [15:0]W,
+		output reg signed [DATA_WIDTH+16:0]x_out,
+		output reg signed [DATA_WIDTH+16:0]y_out
     );
 	
 	
@@ -74,7 +76,7 @@ module CORDIC_angle
 							z_in[15:14] <= z_in[15:14] + 1;
 						end
 					else
-					    z_in  <= z_in +182*W;
+					    z_in  <= z_in +W;
 				else z_in <= z_in;
 				
 				
@@ -83,11 +85,7 @@ module CORDIC_angle
 				state<=s0;
 				buzy <= 0;
 				end
-			//else if(z_in1 == 0)
-			//		begin
-			//			x_out <= 17'b01111111111111111;
-			//			y_out <= 0;
-			//		end	
+			
 				else case(state)
 					s0:begin 	x<={1'b0,k};
 								y<=0;
@@ -350,4 +348,6 @@ module CORDIC_angle
 				endcase
 				
 endmodule
+
+
 
