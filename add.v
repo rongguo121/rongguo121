@@ -7,7 +7,7 @@ module add
 		  output [48:0] sum
 			);
 	
-	assign cout = (a&b) | (a&cin) | (b&cin);
-	assign sum  = a^b^cin;
+	 assign cout = (a&b) | (a&cin) | (b&cin);
+	 assign sum  = a^b^cin;
 
 endmodule
