@@ -42,10 +42,10 @@ module wallce
 			.cout(c4));
 			
 //		
-		assign m1 = c1 << 1;
-		assign m2 = c2 << 1;
-		assign m3 = c3 << 1;
-		assign m4 = c4 << 1;
+		 assign m1 = c1 << 1;
+		 assign m2 = c2 << 1;
+		 assign m3 = c3 << 1;
+		 assign m4 = c4 << 1;
 	
 	add u5 (.a(s1),
 			.b(m1),
