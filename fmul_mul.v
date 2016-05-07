@@ -21,7 +21,7 @@ module fmul_mul
 	wire [7:0] expoent_A = A[30:23];
 	wire [7:0] expoent_B = B[30:23];
 	
-	assign expc =  expoent_A + expoent_B - 127;
+	assign expc =  expoent_A + expoent_B;
 
 	wire [24:0] a1 = {1'b0,a}; //扩展为有符号数，进行booth编码
 	wire [24:0] b1 = {1'b0,b}; //扩展为有符号数，进行booth编码

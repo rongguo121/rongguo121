@@ -4,8 +4,8 @@ module pipelined_mult
 	 input [31:0]A,
 	 input [31:0]B,
 	 
-	 output [31:0]C,
-	 output error_flag);
+	 output [31:0]C
+	);
 	 
 	 wire [48:0] P0,P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12;
 	 wire [48:0] reg_P0,reg_P1,reg_P2,reg_P3,reg_P4,reg_P5,reg_P6,reg_P7,reg_P8,reg_P9,reg_P10,reg_P11,reg_P12;
@@ -99,7 +99,7 @@ module pipelined_mult
 	fmul_norm u5  (.sign(reg_sign1),
 				   .expc2(reg_expc1),
 				   .reg_c(reg_c),
-				   .error_flag(error_flag),
+				  // .error_flag(error_flag),
 				   .C(C));
 endmodule
 				

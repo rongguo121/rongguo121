@@ -5,14 +5,14 @@ module piplined_mult_tb;
 	reg [31:0] A;
 	reg [31:0] B;
 	wire[31:0] C;
-	wire error_flag;
+	//wire error_flag;
 	
 	pipelined_mult u1 (.A(A),
 			   .B(B),
 			   .C(C),
 			   .clk(clk),
-			   .rst_n(rst_n),
-			   .error_flag(error_flag));
+			   .rst_n(rst_n));
+			   //.error_flag(error_flag));
 
 	initial
 		begin
@@ -32,6 +32,16 @@ module piplined_mult_tb;
 			#20;
 			A=32'h53724E7E;
 			B=32'h3B9ACA80;
+			#20;
+			A=32'h7F7FFFFF;
+			B=32'h7F7FFFFF;
+			#20;
+			A=32'h00800000;
+			B=32'h00800000;
+			#20;
+			A=32'h00800000;
+			B=32'h3F000000;
+			#100;$stop;
 		
 		end
 	always #10 clk= ~clk ;	
